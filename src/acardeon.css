@@ -1,0 +1,40 @@
+button {
+  padding: 8px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+p {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+button:active {
+  transform: scale(0.95);
+}
+button:focus {
+  outline: none;
+}
+
+.content {
+  animation: content;
+  animation-duration: 1s;
+  font-size: 14px;
+  margin-left: 10px;
+  background-color: aqua;
+  width: 100px;
+  padding: 10px;
+}
+@keyframes content {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
