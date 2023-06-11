@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/App.css";
+import Header from "./components/header/header";
+import Body from "./components/body/body";
+import { connect } from "react-redux";
+import { getData } from "./redux/api/api";
+import React, { useEffect } from "react";
+import { useRoutes, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import { GameResults } from "./components/gameResults/game-results";
+import InsertGame from "./components/insert-game/index";
+import { InsertTeam } from "./components/insert-team/insert-team";
+export const App = ({ getData }) => {
+  let routes = useRoutes([
+    { path: "/", element: <Home /> },
+    { path: "/about", element: <About /> },
+    { path: "/insertgame", element: <InsertGame /> },
+    { path: "/gameresults", element: <GameResults /> },
+    { path: "/insertteam", element: <InsertTeam /> },
+  ]);
+  // let routes = null;
+  return routes;
+};
 
-function App() {
+const AppWrapper = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <App />
+    </Router>
   );
-}
+};
 
-export default App;
+export default AppWrapper;
